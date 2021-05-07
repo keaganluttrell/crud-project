@@ -4,8 +4,14 @@ import java.util.ArrayList;
 
 public class ListService {
 
-  public ArrayList<ListItem> getListItems() {
-    return null;
-  }
+    public ListService() {
+    }
 
+    public ArrayList<ListItem> getListItems() {
+        return null;
+    }
+
+    public ListItem addListItem() {
+        return null;
+    }
 }
