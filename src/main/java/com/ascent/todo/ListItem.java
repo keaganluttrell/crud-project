@@ -3,6 +3,7 @@ package com.ascent.todo;
 public class ListItem {
 
     private String name = "item";
+    private int id;
 
     public ListItem() {
     }
@@ -17,5 +18,12 @@ public class ListItem {
     @Override
     public String toString() {
         return "item";
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+    public int getId() {
+        return id;
     }
 }

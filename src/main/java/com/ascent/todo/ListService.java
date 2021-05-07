@@ -11,7 +11,11 @@ public class ListService {
         return null;
     }
 
-    public ListItem addListItem() {
+    public ListItem addListItem(ListItem listItem) {
+        return null;
+    }
+
+    public ListItem getById(int id) {
         return null;
     }
 }

@@ -11,6 +11,8 @@ import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 
 import static org.hamcrest.Matchers.hasSize;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.anyInt;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
@@ -50,7 +52,7 @@ public class ListControllerTest {
 
   @Test
   void addListItem() throws Exception {
-    when(listService.addListItem()).thenReturn(new ListItem("New Item"));
+    when(listService.addListItem(any(ListItem.class))).thenReturn(new ListItem("New Item"));
 
     mockMvc.perform(post("/listItem")
             .contentType(MediaType.APPLICATION_JSON)
@@ -58,4 +60,16 @@ public class ListControllerTest {
             .andExpect(status().isOk())
             .andExpect(jsonPath("name").value("New Item"));
   }
+
+  @Test
+  void getById() throws Exception {
+    ListItem actual = new ListItem("GotTheItem");
+    actual.setId(727);
+    when(listService.getById(anyInt())).thenReturn(actual);
+    mockMvc.perform(get("/listItem/{id}"))
+        .andExpect(status().isOk())
+        .andExpect(jsonPath("id").value("GotTheItem"));
+  }
+
+
 }
