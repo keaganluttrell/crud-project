@@ -24,7 +24,7 @@ public class ListController {
         return listService.getItemById(id);
     }
 
-    @PostMapping("/listItem")
+    @PostMapping("listItem")
     public ListItem addListItem(@RequestBody ListItem listItem) {
         return listService.addListItem(listItem);
     }
@@ -38,6 +38,5 @@ public class ListController {
     public ArrayList<ListItem> deleteItemById(@PathVariable int id) {
         return listService.deleteItemById(id);
     }
-
 
 }

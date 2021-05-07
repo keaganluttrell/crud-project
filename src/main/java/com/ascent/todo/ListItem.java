@@ -21,16 +21,16 @@ public class ListItem {
         return name;
     }
 
-    @Override
-    public String toString() {
-        return "item";
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getId() {
+        return id;
     }
 
     public void setId(int id) {
         this.id = id;
-    }
-    public int getId() {
-        return id;
     }
 
     public String getBody() {
@@ -41,7 +41,8 @@ public class ListItem {
         this.body = body;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    @Override
+    public String toString() {
+        return "item";
     }
 }
