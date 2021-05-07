@@ -3,6 +3,7 @@ package com.ascent.todo;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @RestController
 @RequestMapping("/")
@@ -31,6 +32,11 @@ public class ListController {
     @PatchMapping("listItem/{id}")
     public ListItem updateListItemBody(@PathVariable int id, @RequestBody String body) {
         return listService.updateBody(id, body);
+    }
+
+    @DeleteMapping("listItem/{id}")
+    public ArrayList<ListItem> deleteItemById(@PathVariable int id) {
+        return listService.deleteItemById(id);
     }
 
 
