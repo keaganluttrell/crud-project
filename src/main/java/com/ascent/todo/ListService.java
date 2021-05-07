@@ -1,34 +1,42 @@
 package com.ascent.todo;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class ListService {
+
+    private ArrayList<ListItem> itemList = new ArrayList<>();
 
     public ListService() {
     }
 
     public ArrayList<ListItem> getListItems() {
-        return null;
+        return itemList;
     }
 
     public ListItem addListItem(ListItem listItem) {
-        return null;
+        itemList.add(listItem);
+        return listItem;
     }
 
     public ListItem getItemById(int id) {
+        for(ListItem item : itemList) {
+            if(item.getId() == id) {
+                return item;
+            }
+        }
         return null;
     }
 
     public ListItem updateBody(int anyInt, String anyString) {
-        return null;
+        ListItem updated = itemList.get(anyInt);
+        updated.setBody(anyString);
+        return updated;
     }
 
-
-    public ListItem updateName(int anyInt, String anyString) {
-        return null;
-    }
-
-    public ArrayList<ListItem> deleteItemById(int anyInt) {
-        return null;
+    public ArrayList<ListItem> deleteItemById(int id) {
+        ListItem deletedItem = itemList.get(id);
+        itemList.remove(deletedItem);
+        return itemList;
     }
 }
