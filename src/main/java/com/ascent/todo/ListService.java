@@ -22,4 +22,13 @@ public class ListService {
     public ListItem updateBody(int anyInt, String anyString) {
         return null;
     }
+
+
+    public ListItem updateName(int anyInt, String anyString) {
+        return null;
+    }
+
+    public ArrayList<ListItem> deleteItemById(int anyInt) {
+        return null;
+    }
 }

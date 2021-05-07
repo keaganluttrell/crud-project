@@ -28,4 +28,10 @@ public class ListController {
         return listService.addListItem(listItem);
     }
 
+    @PatchMapping("listItem/{id}")
+    public ListItem updateListItemBody(@PathVariable int id, @RequestBody String body) {
+        return listService.updateBody(id, body);
+    }
+
+
 }

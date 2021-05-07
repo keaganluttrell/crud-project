@@ -35,7 +35,7 @@ public class ListControllerTest {
   void setUp() {
     itemList = new ArrayList<>();
     for (int i = 0; i < 10; i++){
-      itemList.add(new ListItem());
+      itemList.add(new ListItem(i));
     }
   }
 
@@ -78,8 +78,20 @@ public class ListControllerTest {
 
     mockMvc.perform(patch("/listItem/" + actual.getId())
             .contentType(MediaType.APPLICATION_JSON)
-            .content("{\"body\":\"new body\"}"))
+            .content("{\"body\":\"this is the body\"}"))
             .andExpect(status().isOk())
-            .andExpect(jsonPath("body").value("new body"));
+            .andExpect(jsonPath("body").value("this is the body"));
   }
+
+  @Test
+  void deleteListItem() throws Exception {
+
+    when(listService.deleteItemById(anyInt())).thenReturn(itemList);
+
+    mockMvc.perform(delete("/listItem/3"))
+        .andExpect(status().isOk())
+        .andExpect(jsonPath("$", hasSize(10)));
+  }
+
+
 }

@@ -9,6 +9,10 @@ public class ListItem {
     public ListItem() {
     }
 
+    public ListItem(int id) {
+        this.id = id;
+    }
+
     public ListItem(String name) {
         this.name = name;
     }
@@ -35,5 +39,9 @@ public class ListItem {
 
     public void setBody(String body) {
         this.body = body;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }
