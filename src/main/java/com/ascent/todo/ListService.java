@@ -15,7 +15,7 @@ public class ListService {
         return null;
     }
 
-    public ListItem getById(int id) {
+    public ListItem getItemById(int id) {
         return null;
     }
 }

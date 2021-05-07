@@ -62,14 +62,15 @@ public class ListControllerTest {
   }
 
   @Test
-  void getById() throws Exception {
+  void getItemById() throws Exception {
     ListItem actual = new ListItem("GotTheItem");
     actual.setId(727);
-    when(listService.getById(anyInt())).thenReturn(actual);
-    mockMvc.perform(get("/listItem/{id}"))
+    when(listService.getItemById(anyInt())).thenReturn(actual);
+    mockMvc.perform(get("/listItem/" + actual.getId()))
         .andExpect(status().isOk())
-        .andExpect(jsonPath("id").value("GotTheItem"));
+        .andExpect(jsonPath("id").value(727));
   }
+
 
 
 }

@@ -1,10 +1,6 @@
 package com.ascent.todo;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 
@@ -20,6 +16,11 @@ public class ListController {
     @GetMapping("list")
     public ArrayList<ListItem> getList() {
         return listService.getListItems();
+    }
+
+    @GetMapping("listItem/{id}")
+    public ListItem getItemById(@PathVariable int id) {
+        return listService.getItemById(id);
     }
 
     @PostMapping("/listItem")
