@@ -18,4 +18,8 @@ public class ListService {
     public ListItem getItemById(int id) {
         return null;
     }
+
+    public ListItem updateBody(int anyInt, String anyString) {
+        return null;
+    }
 }

@@ -4,9 +4,11 @@ public class ListItem {
 
     private String name = "item";
     private int id;
+    private String body;
 
     public ListItem() {
     }
+
     public ListItem(String name) {
         this.name = name;
     }
@@ -25,5 +27,13 @@ public class ListItem {
     }
     public int getId() {
         return id;
+    }
+
+    public String getBody() {
+        return body;
+    }
+
+    public void setBody(String body) {
+        this.body = body;
     }
 }

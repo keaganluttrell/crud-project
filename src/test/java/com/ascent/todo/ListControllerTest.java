@@ -11,12 +11,10 @@ import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 
 import static org.hamcrest.Matchers.hasSize;
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.ArgumentMatchers.anyInt;
+import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -71,6 +69,17 @@ public class ListControllerTest {
         .andExpect(jsonPath("id").value(727));
   }
 
+  @Test
+  void updateBody() throws Exception {
+    ListItem actual= new ListItem("bodyTest");
+    actual.setId(9);
+    actual.setBody("this is the body");
+    when(listService.updateBody(anyInt(), anyString())).thenReturn(actual);
 
-
+    mockMvc.perform(patch("/listItem/" + actual.getId())
+            .contentType(MediaType.APPLICATION_JSON)
+            .content("{\"body\":\"new body\"}"))
+            .andExpect(status().isOk())
+            .andExpect(jsonPath("body").value("new body"));
+  }
 }
