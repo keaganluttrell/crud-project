@@ -1,8 +1,10 @@
 package com.ascent.todo;
 
-import java.util.ArrayList;
-import java.util.List;
+import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
+
+@Component
 public class ListService {
 
     private ArrayList<ListItem> itemList = new ArrayList<>();
